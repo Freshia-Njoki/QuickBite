@@ -87,16 +87,17 @@
     </div>
   </header><!-- End Header -->
 
-  <main id="main" class="p-5 text-center">
+  <main id="main" class="p-5 text-center m-5">
 
 <h1> Make a Payment</h1>
-<form method="post" action="{% url 'stk' %}">
+<form method="post" >
     {% csrf_token %}
     <label for="phone">Phone Number:</label>
+  <br>
     <input type="number" name="phone" id="phone" value="254" required="required">
     <br><br>
 
-     <label for="amount">Amount:</label>
+     <label for="amount">Amount:</label> <br>
     <input type="number" name="amount" id="amount" required="required">
     <br><br>
 

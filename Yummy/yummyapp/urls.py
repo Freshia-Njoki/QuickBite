@@ -18,6 +18,7 @@ urlpatterns = [
     path('pay/', views.pay, name="pay"),
     path('token/', views.token, name='token'),
     path('stk/', views.stk, name='stk'),
+    path('success/', views.success, name='success'),
     # path('show/', views.show, name="show"),
     # path('delete/<int:id>', views.delete),
     # path('edit/<int:id>', views.edit),

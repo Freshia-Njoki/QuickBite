@@ -1,7 +1,7 @@
 
 from django.shortcuts import render, redirect
 # from yummyapp.forms import EmpForm
-from yummyapp.models import Member
+from yummyapp.models import Member, Order, Pay
 from django.http import HttpResponse
 import requests
 from yummyapp.credentials import MpesaC2bCredential, MpesaAccessToken, LipanaMpesaPpassword
@@ -37,13 +37,17 @@ def chefs(request):
 def gallery(request):
     return render(request, 'gallery.html')
 
-
 def contact(request):
     return render(request, 'contact.html')
 
-
 def order(request):
-    return render(request, 'book_a_table.html')
+    if request.method == 'POST':
+        book = Order(name=request.POST['name'], email=request.POST['email'], phone=request.POST['phone'], date=request.POST['date'], time=request.POST['time'], people=request.POST['people'], message=request.POST['message'])
+        book.save()
+        return redirect('/pay')
+    else:
+        return render(request, 'book_a_table.html')
+
 
 def token(request):
     consumer_key = 'jGwhIUHzBuLqsMmE4Y9KE0OC2Lfh6c1w'
@@ -58,7 +62,12 @@ def token(request):
     return render(request, 'token.html', {"token":validated_mpesa_access_token})
 
 def pay(request):
-    return render(request, 'pay.html')
+    if request.method == 'POST':
+        cash = Pay(phone=request.POST['phone'], amount=request.POST['amount'])
+        cash.save()
+        return redirect('/success')
+    else:
+        return render(request, 'pay.html')
 
 def stk(request):
     if request.method =="POST":
@@ -81,8 +90,12 @@ def stk(request):
             "TransactionDesc": "Web Development Charges"
         }
         response = requests.post(api_url, json=request, headers=headers)
+        # return redirect('success')
         return HttpResponse(response)
 
+
+def success(request):
+    return render(request, 'success.html')
 
 #
 # def show(request):
