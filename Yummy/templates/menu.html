@@ -134,17 +134,19 @@
               <p>Menu</p>
               <h3>Starters</h3>
             </div>
+              {% for image in images %}
 
             <div class="row gy-5">
 
+
               <div class="col-lg-4 menu-item">
-                <a href="{% static 'assets/img/menu/menu-item-1.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/1214416414/photo/barbecued-salmon-fried-potatoes-and-vegetables-on-wooden-background.webp?b=1&s=170667a&w=0&k=20&c=MM6pU7DfEs8la5rADlnCqAPiWs0FIwCP9ExAF_A-vWM=" class="menu-img img-fluid" alt=""></a>
-                <h4>Grilled Salmon</h4>
+                <img src="{{ image.image.url}}" alt="Uploaded Image" class="menu-img img-fluid" style="width: 300px;height:200px"></a>
+                <h4>{{ image.title}}</h4>
                 <p class="ingredients">
-                   Salmon fillet, Lemon herb, Olive oil, Garlic
+                   <p>{{ image.description}}</p>
                 <p class="price">
+                  <p>{{ image.price }}</p>
                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
-                  Ksh 650
                 </p>
               </div><!-- Menu Item -->
 
@@ -483,6 +485,7 @@
 
 
             </div>
+              {% endfor %}
           </div><!-- End Dinner Menu Content -->
 
         </div>

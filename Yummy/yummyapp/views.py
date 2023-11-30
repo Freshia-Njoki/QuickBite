@@ -1,7 +1,10 @@
+import json
 
 from django.shortcuts import render, redirect
+
+from yummyapp.forms import ImageUploadForm
 # from yummyapp.forms import EmpForm
-from yummyapp.models import Member, Order, Pay
+from yummyapp.models import Member, Order, Pay, ImageModel
 from django.http import HttpResponse
 import requests
 from yummyapp.credentials import MpesaC2bCredential, MpesaAccessToken, LipanaMpesaPpassword
@@ -28,8 +31,9 @@ def index(request):
 def about(request):
     return render(request, 'about.html')
 
-def menu(request):
-    return render(request, 'menu.html')
+def show_image(request):
+    images = ImageModel.objects.all()
+    return render(request, 'menu.html', {'images': images})
 
 def chefs(request):
     return render(request, 'chefs.html')
@@ -49,6 +53,22 @@ def order(request):
         return render(request, 'book_a_table.html')
 
 
+def upload_image(request):
+    if request.method == 'POST':
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/menu')
+    else:
+        form = ImageUploadForm()
+    return render(request, 'upload_image.html', {'form': form})
+
+def imagedelete(request, id):
+    image = ImageModel.objects.get(id=id)
+    image.delete()
+    return redirect('/menu')
+
+
 def token(request):
     consumer_key = 'jGwhIUHzBuLqsMmE4Y9KE0OC2Lfh6c1w'
     consumer_secret = 'tFgqczyjiayK16Hp'
@@ -65,7 +85,7 @@ def pay(request):
     if request.method == 'POST':
         cash = Pay(phone=request.POST['phone'], amount=request.POST['amount'])
         cash.save()
-        return redirect('/success')
+        return redirect('stk')
     else:
         return render(request, 'pay.html')
 
@@ -90,8 +110,8 @@ def stk(request):
             "TransactionDesc": "Web Development Charges"
         }
         response = requests.post(api_url, json=request, headers=headers)
-        # return redirect('success')
-        return HttpResponse(response)
+        return redirect('success')
+        # return HttpResponse(response)
 
 
 def success(request):

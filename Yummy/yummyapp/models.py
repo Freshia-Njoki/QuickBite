@@ -19,6 +19,15 @@ class Order(models.Model):
     people = models.IntegerField(default=0)
     message = models.TextField()
 
+class ImageModel(models.Model):
+    image = models.ImageField(upload_to='menu/')
+    title = models.CharField(max_length=50)
+    description = models.TextField()
+    price = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.title + " " + self.description + " " + self.price
+
 
 class Pay(models.Model):
     phone = models.CharField(max_length=20)
