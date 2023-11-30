@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>show</title>
+</head>
+<body>
+
+<table class="table table-info">
+    <h1 class="text-center">Employee Details</h1>
+    <thead>
+        <tr class="table-dark">
+            <th>Name</th>
+            <th>Email</th>
+            <th>PhoneNo</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    
+    <tr>
+        {% for employee in employees %}
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phoneNo}}</td>
+        <td>
+            <a href="/edit/{{ employee.id }}" class="btn btn-warning">EDIT</a>
+            <a href="/delete/{{ employee.id}}" class="btn btn-danger">DELETE</a>
+        </td>
+    </tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>

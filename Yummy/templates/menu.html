@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>QuickBite Restuarant</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  {% load static %}
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Yummy
+  * Updated: Sep 18 2023 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1>QuickBite<span>.</span></h1>
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'hero' %}">Home</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'about' %}">Menu</a></li>
+          <li><a href="{% url 'chefs' %}">Chefs</a></li>
+          <li><a href="{% url 'gallery' %}">Gallery</a></li>
+<!--          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>-->
+<!--            <ul>-->
+<!--              <li><a href="#">Drop Down 1</a></li>-->
+<!--              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>-->
+<!--                <ul>-->
+<!--                  <li><a href="#">Deep Drop Down 1</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 2</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 3</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 4</a></li>-->
+<!--                  <li><a href="#">Deep Drop Down 5</a></li>-->
+<!--                </ul>-->
+<!--              </li>-->
+<!--              <li><a href="#">Drop Down 2</a></li>-->
+<!--              <li><a href="#">Drop Down 3</a></li>-->
+<!--              <li><a href="#">Drop Down 4</a></li>-->
+<!--            </ul>-->
+<!--          </li>-->
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+      <a class="btn-book-a-table" href="{% url 'order'%}">Book a Table</a>
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+        <!-- ======= Menu Section ======= -->
+    <section id="menu" class="menu">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Our Menu</h2>
+          <p>Check Our <span>Yummy Menu</span></p>
+        </div>
+
+        <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+
+          <li class="nav-item">
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
+              <h4>Starters</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+              <h4>Breakfast</h4>
+            </a><!-- End tab nav item -->
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
+              <h4>Lunch</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
+              <h4>Dinner</h4>
+            </a>
+          </li><!-- End tab nav item -->
+
+        </ul>
+
+        <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+
+          <div class="tab-pane fade active show" id="menu-starters">
+
+            <div class="tab-header text-center">
+              <p>Menu</p>
+              <h3>Starters</h3>
+            </div>
+
+            <div class="row gy-5">
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-1.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/1214416414/photo/barbecued-salmon-fried-potatoes-and-vegetables-on-wooden-background.webp?b=1&s=170667a&w=0&k=20&c=MM6pU7DfEs8la5rADlnCqAPiWs0FIwCP9ExAF_A-vWM=" class="menu-img img-fluid" alt=""></a>
+                <h4>Grilled Salmon</h4>
+                <p class="ingredients">
+                   Salmon fillet, Lemon herb, Olive oil, Garlic
+                <p class="price">
+                  <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 650
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-2.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/1345888788/photo/caprese-salad.webp?b=1&s=170667a&w=0&k=20&c=MJ7KuxeFUv7HDqj38CFPDnA5JTXPBlwzPh3PGop4j1M=" class="menu-img img-fluid" alt=""></a>
+                <h4>Caprese Salad</h4>
+                <p class="ingredients">
+                 Fresh mozzarella, Vine-ripened tomatoes, Basil leaves, Balsamic glaze
+                </p>
+                <p class="price">
+                  <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 350
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-3.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/1248489319/photo/tiramisu-cake-with-mint.webp?b=1&s=170667a&w=0&k=20&c=kSydby3c1pRVpQ8clJ5lzlis7Ms1HQrizM-L79ETBnE=" class="menu-img img-fluid" alt=""></a>
+                <h4>Tiramisu Cake</h4>
+                <p class="ingredients">
+                  Ladyfingers, Mascarpone cheese, Espresso coffee, Cocoa powder
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 1120
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-4.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/1452768554/photo/roasted-chicken-and-vegetables.webp?b=1&s=170667a&w=0&k=20&c=8grwA4VOghNVFCug2VexsdpxMvFrvVDZj2m7gHpAk1Y=" class="menu-img img-fluid" alt=""></a>
+                <h4>Roast Chicken</h4>
+                <p class="ingredients">
+                  Whole chicken, Rosemary garlic, Butter,, Thyme
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 870
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-5.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/184120573/photo/spaghetti-with-pesto-sauce.webp?b=1&s=170667a&w=0&k=20&c=mIlUFvCLvyokdGiqhEnUpeN2YihOT9MawpQ5dQavelA=" class="menu-img img-fluid" alt=""></a>
+                <h4>Pesto Pasta</h4>
+                <p class="ingredients">
+                  Linguine pasta, Basil pesto, Pine nuts, Parmesan cheese, Cherry tomatoes
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 600
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-6.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/183042590/photo/creme-caramel.webp?b=1&s=170667a&w=0&k=20&c=353PCpoq8lFMQFUCtS8PHINlLxsZFsDiG088FSMKk9s=" class="menu-img img-fluid" alt=""></a>
+                <h4>Caramel Flan</h4>
+                <p class="ingredients">
+                  Sugar syrup, Eggs, Vanilla extract, Heavy cream, Caramel sauce
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 900
+                </p>
+              </div><!-- Menu Item -->
+
+            </div>
+          </div><!-- End Starter Menu Content -->
+
+          <div class="tab-pane fade" id="menu-breakfast">
+
+            <div class="tab-header text-center">
+              <p>Menu</p>
+              <h3>Breakfast</h3>
+            </div>
+
+            <div class="row gy-5">
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-1.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/157610681/photo/fruit-tart.webp?b=1&s=170667a&w=0&k=20&c=V-pr2U-rr29dPnEFbzp5D8W--LUdDCjAeyFs8iV-a-8=" class="menu-img img-fluid" alt=""></a>
+                <h4>Fruit Tart</h4>
+                <p class="ingredients">
+                  Shortcrust pastry, Pastry cream, Fresh fruits, Apricot glaze, Mint leaves
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 400
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-2.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/1473452859/photo/tasty-cheeseburger-glass-of-cola-and-french-fries-on-wooden-tray-close-up.webp?b=1&s=170667a&w=0&k=20&c=AO5BL1L55jnam8yVMVTH0Sj0mnaPNrVaw42q9rgvFps=" class="menu-img img-fluid" alt=""></a>
+                <h4>Beef Burger</h4>
+                <p class="ingredients">
+                  Beef patty, Cheddar cheese, Brioche bun, Lettuce, Tomato
+                </p>
+
+                <p class="price">
+                  <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 970
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                 <a href="{% static 'assets/img/menu/menu-item-2.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/483571809/photo/shrimp-scampi.webp?b=1&s=170667a&w=0&k=20&c=A0govMYslcE3-z0G268RcgCG6B4b-ufMkm2vmGPppC4=" class="menu-img img-fluid" alt=""></a>
+                <h4>Shrimp Scampi</h4>
+                <p class="ingredients">
+                  Shrimp, Garlic butter, White wine, Lemon juice, Parsley
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 320
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-4.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/1160715936/photo/ratatouille-being-cooked-in-a-cast-iron-casserole-french-cooking.webp?b=1&s=170667a&w=0&k=20&c=_2D-iyU7Gd6Ns0ZAKWXsioLENB9OcYprLcLvZF7LLFc=" class="menu-img img-fluid" alt=""></a>
+                <h4>Ratatouille Stew</h4>
+                <p class="ingredients">
+                  Eggplant, Zucchini, Bell peppers, Tomatoes
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 710
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-5.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/1467357489/photo/rainbow-roll-with.webp?b=1&s=170667a&w=0&k=20&c=p2w0DU7hFiggt0nL2C4wVdgeSkRW9D2jQZu8qzUZ_ks=" class="menu-img img-fluid" alt=""></a>
+                <h4>Sushi Roll</h4>
+                <p class="ingredients">
+                  Sushi rice, Nori seaweed, Fresh fish, Cucumber
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 370
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-6.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/1325470251/photo/yellow-ice-cream-sorbet-in-blue-ceramic-bowl-closeup.webp?b=1&s=170667a&w=0&k=20&c=FKUgDyFm6izvUbLvgGhYUB2PE8MW4tkIOS1NdQLrBPs=" class="menu-img img-fluid" alt=""></a>
+                <h4>Mango Sorbet</h4>
+                <p class="ingredients">
+                 Ripe mangoes, Sugar syrup, Lemon juice, Water
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  $Ksh 230
+                </p>
+              </div><!-- Menu Item -->
+
+            </div>
+          </div><!-- End Breakfast Menu Content -->
+
+          <div class="tab-pane fade" id="menu-lunch">
+
+            <div class="tab-header text-center">
+              <p>Menu</p>
+              <h3>Lunch</h3>
+            </div>
+
+            <div class="row gy-5">
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-1.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/642027050/photo/healthy-green-salad-with-roasted-butternuts-squash.webp?b=1&s=170667a&w=0&k=20&c=X3lULXCg3vwd0XexJtdPazDkIxtXaOYq0LeTsuAkTb0=" class="menu-img img-fluid" alt=""></a>
+                <h4>Spinach Salad</h4>
+                <p class="ingredients">
+                  Fresh spinach, Strawberries, Feta cheese, Candied pecans
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 160
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-2.png' %}" class="glightbox"><img src="https://media.istockphoto.com/id/636044696/photo/chocolate-pudding.webp?b=1&s=170667a&w=0&k=20&c=3UprtiR8iecsvI3s9-yQ5qgP77105V2ajlh7OHRvYyY=" class="menu-img img-fluid" alt=""></a>
+                <h4>Chocolate Mousse</h4>
+                <p class="ingredients">
+                  Dark chocolate, Whipped cream, Egg yolks, Sugar
+                </p>
+                <p class="price">
+                   <a href="{% url 'order' %}" class="btn btn-success">order</a>
+                  Ksh 650
+                </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                  <a href="{% static 'assets/img/menu/menu-item-3.png' %}" class="glightbox">
+                      <img src="https://media.istockphoto.com/id/518528305/photo/homemade-lemon-and-herb-chicken.webp?b=1&s=170667a&w=0&k=20&c=0wP4y0LAZ3xfTmTmEDfeHCVnx-2wZ-F7XQXlO7aPrb8=" class="menu-img img-fluid" alt="">
+                  </a>
+                  <h4>Lemon Chicken</h4>
+                  <p class="ingredients">
+                      Chicken breasts, Lemon zest, Chicken broth, Garlic
+                  </p>
+                  <p class="price">
+                      <a href="{% url 'order' %}" class="btn btn-success">Order Now</a>
+                      Ksh 1300
+                  </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                  <a href="{% static 'assets/img/menu/menu-item-4.png' %}" class="glightbox">
+                      <img src="https://media.istockphoto.com/id/181071748/photo/tomato-soup.webp?b=1&s=170667a&w=0&k=20&c=dJC_-TjunqqSaeE8dYBsoS52gr_FBa2Chuxd_jy2UDQ=" class="menu-img img-fluid" alt="">
+                  </a>
+                  <h4>Tomato Soup</h4>
+                  <p class="ingredients">
+                      Tomato, Basil, Onion, Cream, Salt
+                  </p>
+                  <p class="price">
+                      <a href="{% url 'order' %}" class="btn btn-success">Order Now</a>
+                      Ksh 220
+                  </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                  <a href="{% static 'assets/img/menu/menu-item-5.png' %}" class="glightbox">
+                      <img src="https://media.istockphoto.com/id/1073729226/photo/delicious-goulash-with-red-cabbage-chili-and-rosemary.webp?b=1&s=170667a&w=0&k=20&c=XLrOI7Vs-pc5EOAVvcutrcaavMAGh_c-44fWOQ6dhm0=" class="menu-img img-fluid" alt="">
+                  </a>
+                  <h4>Beef Stew</h4>
+                  <p class="ingredients">
+                      Beef chunks, Carrots, Potatoes, Onion, Broth
+                  </p>
+                  <p class="price">
+                      <a href="{% url 'order' %}" class="btn btn-success">Order Now</a>
+                      Ksh 542
+                  </p>
+              </div><!-- Menu Item -->
+
+              <div class="col-lg-4 menu-item">
+                  <a href="{% static 'assets/img/menu/menu-item-6.png' %}" class="glightbox">
+                      <img src="https://media.istockphoto.com/id/1211166166/photo/caesar-salad-with-grilled-chicken-and-croutons-of-bread.webp?b=1&s=170667a&w=0&k=20&c=AkbC3evrWYYX1l37-QfUtraapsChzr226qJeXap46M8=" class="menu-img img-fluid" alt="">
+                  </a>
+                  <h4>Caesar Salad</h4>
+                  <p class="ingredients">
+                      Romaine lettuce, Croutons, Black pepper
+                  </p>
+                  <p class="price">
+                      <a href="{% url 'order' %}" class="btn btn-success">Order Now</a>
+                      Ksh 340
+                  </p>
+              </div><!-- Menu Item -->
+
+
+            </div>
+          </div><!-- End Lunch Menu Content -->
+
+          <div class="tab-pane fade" id="menu-dinner">
+
+            <div class="tab-header text-center">
+              <p>Menu</p>
+              <h3>Dinner</h3>
+            </div>
+
+            <div class="row gy-5">
+
+              <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-1.png' %}" class="glightbox">
+                    <img src="https://media.istockphoto.com/id/972852490/photo/bbq-sirloin-steaks-with-fresh-thyme.webp?b=1&s=170667a&w=0&k=20&c=0P83avSLzwQPwrmKNhYKYKVgnXMlfuZ3FDbmXpQdRX4=" class="menu-img img-fluid" alt="">
+                </a>
+                <h4>Grilled Steak</h4>
+                <p class="ingredients">
+                    Beef, Herbs, Garlic, Butter, Salt
+                </p>
+                <p class="price">
+                    <a href="{% url 'order' %}" class="btn btn-success">Order</a>
+                    Ksh 870
+                </p>
+            </div><!-- Menu Item -->
+
+            <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-2.png' %}" class="glightbox">
+                    <img src="https://media.istockphoto.com/id/503203991/photo/homemade-italian-chicken-parmesan.webp?b=1&s=170667a&w=0&k=20&c=LjQffQCDNySqAFaFRt-PtSOUKXzqBJ4Nnnl_oKkM4ko=" class="menu-img img-fluid" alt="">
+                </a>
+                <h4>Chicken Pasta</h4>
+                <p class="ingredients">
+                    Chicken, Pasta, Tomato, Cream, Herbs
+                </p>
+                <p class="price">
+                    <a href="{% url 'order' %}" class="btn btn-success">Order</a>
+                    Ksh 900
+                </p>
+            </div><!-- Menu Item -->
+
+            <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-3.png' %}" class="glightbox">
+                    <img src="https://media.istockphoto.com/id/1308223808/photo/grilled-salmon-fillet-and-fresh-vegetable-salad-mediterranean-diet.webp?b=1&s=170667a&w=0&k=20&c=3Hqmj_jGcF6m2Tj4Cb_Sek0GMSM2AuEUk6LcHNrf7kc=" class="menu-img img-fluid" alt="">
+                </a>
+                <h4>Salmon Salad</h4>
+                <p class="ingredients">
+                    Salmon, Lettuce, Cucumber, Tomatoes, Dressing
+                </p>
+                <p class="price">
+                    <a href="{% url 'order' %}" class="btn btn-success">Order</a>
+                    Ksh 470
+                </p>
+            </div><!-- Menu Item -->
+
+            <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-4.png' %}" class="glightbox">
+                    <img src="https://media.istockphoto.com/id/1398630614/photo/bacon-cheeseburger-on-a-toasted-bun.webp?b=1&s=170667a&w=0&k=20&c=Aq7Dg29n3DDE3gqgT2cWSh9LYxZnr-8SFu0crRQxArA=" class="menu-img img-fluid" alt="">
+                </a>
+                <h4>Beef Burger</h4>
+                <p class="ingredients">
+                    Beef, Bun, Cheese, Lettuce, Tomato
+                </p>
+                <p class="price">
+                    <a href="{% url 'order' %}" class="btn btn-success">Order</a>
+                    Ksh 800
+                </p>
+            </div><!-- Menu Item -->
+
+            <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-5.png' %}" class="glightbox">
+                    <img src="https://media.istockphoto.com/id/1414019075/photo/close-up-image-of-row-of-five-glass-screw-cap-bottles-of-green-purple-yellow-orange-and-red.webp?b=1&s=170667a&w=0&k=20&c=v6wM-zPsrRqZ8tC7BD9OWLXF-cpHYktRgBP6lwHeSRQ=" class="menu-img img-fluid" alt="">
+                </a>
+                <h4>Fruit Smoothie</h4>
+                <p class="ingredients">
+                    Banana, Berries, Yogurt, Honey, Almond Milk
+                </p>
+                <p class="price">
+                    <a href="{% url 'order' %}" class="btn btn-success">Order</a>
+                    Ksh 500
+                </p>
+            </div><!-- Menu Item -->
+
+            <div class="col-lg-4 menu-item">
+                <a href="{% static 'assets/img/menu/menu-item-6.png' %}" class="glightbox">
+                    <img src="https://media.istockphoto.com/id/1314368528/photo/brazilian-style-pizza-with-mozzarella-cheese-pepperoni-sausage-and-onion-top-view.webp?b=1&s=170667a&w=0&k=20&c=Bvh8iFhc3OVrkLVF7P6hmcggTX6arEx-Pt-VFEy4iS8=" class="menu-img img-fluid" alt="">
+                </a>
+                <h4>Pizza Margherita</h4>
+                <p class="ingredients">
+                    Dough, Tomato, Mozzarella, Basil, Olive Oil
+                </p>
+                <p class="price">
+                    <a href="{% url 'order' %}" class="btn btn-success">Order</a>
+                    Ksh 1200
+                </p>
+            </div><!-- Menu Item -->
+
+
+            </div>
+          </div><!-- End Dinner Menu Content -->
+
+        </div>
+
+      </div>
+    </section><!-- End Menu Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Address</h4>
+            <p>
+              A108 Adam Street <br>
+              New York, NY 535022 - US<br>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Reservations</h4>
+            <p>
+              <strong>Phone:</strong> +1 5589 55488 55<br>
+              <strong>Email:</strong> info@example.com<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat: 11AM</strong> - 23PM<br>
+              Sunday: Closed
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>QuickBite</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/ -->
+        Designed by <a href="https://www.linkedin.com/in/freshia-njoki">Freshia</a>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+  <!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>

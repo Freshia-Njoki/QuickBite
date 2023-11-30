@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>edit</title>
+</head>
+<body>
+<h1>Update Employee Information</h1>
+
+<form method="POST" action="/update/{{employees.id}}" >
+    {% csrf_token %}
+    <label for="name">Employee name</label>
+    <input type="text" name="name" id="name" value="{{employee.name}}">
+
+    <label for="email">Email Address:</label>
+    <input type="email" name="email" id="email" value="{{employees.email}}">
+
+    <label for="phoneNo">phoneNo:</label>
+    <input type="number" name="phoneNo" id="phoneNo" value="{{employees.phoneNo}}">
+
+    <button type="submit" class="btn btn-info">Update</button>
+</form>
+
+</body>
+</html>
