@@ -46,7 +46,7 @@ def contact(request):
 
 def order(request):
     if request.method == 'POST':
-        book = Order(name=request.POST['name'], email=request.POST['email'], phone=request.POST['phone'], date=request.POST['date'], time=request.POST['time'], people=request.POST['people'], message=request.POST['message'])
+        book = Order(name=request.POST['name'], email=request.POST['email'], phone=request.POST['phone'], date=request.POST['date'], time=request.POST['time'], message=request.POST['message'])
         book.save()
         return redirect('/pay')
     else:
